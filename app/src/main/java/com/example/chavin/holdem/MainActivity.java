@@ -14,6 +14,7 @@
     import android.widget.Button;
     import android.widget.DatePicker;
     import android.widget.EditText;
+    import android.widget.RadioGroup;
     import android.widget.TextView;
     import android.widget.Toast;
 
@@ -30,46 +31,14 @@
         private EditText editTextPassword;
         private Button buttonSignup;
 
-        //private Button get_Date_Btn;
         private TextView textViewSignin;
-    /*    int year_x,month_x,day_x;
-        static final int dialogId=0;*/
+
 
         private ProgressDialog progressDialog;
 
 
         //defining firebase auth object
         private FirebaseAuth firebaseAuth;
-
-
-     /*   public void DOB(){
-            get_Date_Btn = (Button)findViewById(R.id.get_Date_Btn);
-            get_Date_Btn.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            showDialog(dialogId);
-                        }
-                    }
-            );
-        }*/
-
-       /* @Override
-        protected Dialog onCreateDialog(int id){
-            if(id==dialogId)
-                return new DatePickerDialog(this, dpickerListner ,year_x ,month_x ,day_x);
-                    return null;
-        }
-
-        private DatePickerDialog.OnDateSetListener dpickerListner = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                year_x=year;
-                month_x=month+1;
-                day_x=dayOfMonth;
-                Toast.makeText(MainActivity.this,year_x+"/"+month_x+"/"+day_x,Toast.LENGTH_LONG);
-            }
-        };*/
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -102,10 +71,7 @@
             buttonSignup.setOnClickListener(this);
             textViewSignin.setOnClickListener(this);
 
-       /*     final Calendar cal =  Calendar.getInstance();
-            year_x=cal.get(Calendar.YEAR);
-            month_x=cal.get(Calendar.MONTH);
-            day_x=cal.get(Calendar.DATE);*/
+
 
         }
 
