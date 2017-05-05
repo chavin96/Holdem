@@ -10,11 +10,6 @@ public class UserModel {
         String password;
         String dob;
 
-    public UserModel(){
-
-
-    }
-
     public String getName() {
         return name;
     }
@@ -46,4 +41,9 @@ public class UserModel {
     public void setDob(String dob) {
         this.dob = dob;
     }
+
+    public UserModel(){
+
+    }
+
 }
