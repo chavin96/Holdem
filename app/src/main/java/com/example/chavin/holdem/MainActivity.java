@@ -23,13 +23,18 @@
     import com.google.android.gms.tasks.Task;
     import com.google.firebase.auth.AuthResult;
     import com.google.firebase.auth.FirebaseAuth;
+    import com.google.firebase.auth.FirebaseUser;
+    import com.google.firebase.database.DatabaseReference;
+    import com.google.firebase.database.FirebaseDatabase;
 
     public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
         //defining view objects
         private EditText editTextEmail;
         private EditText editTextPassword;
+        private EditText editTextName;
         private Button buttonSignup;
+        private EditText txtdate;
 
         private TextView textViewSignin;
 
@@ -61,6 +66,8 @@
             //initializing views
             editTextEmail = (EditText) findViewById(R.id.editTextEmail);
             editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+            editTextName = (EditText) findViewById(R.id.editTextName);
+            txtdate = (EditText) findViewById(R.id.txtdate);
             textViewSignin = (TextView) findViewById(R.id.textViewSignin);
 
             buttonSignup = (Button) findViewById(R.id.buttonSignup);
@@ -95,10 +102,13 @@
         private void registerUser() {
 
             //getting email and password from edit texts
-            String email = editTextEmail.getText().toString().trim();
-            String password = editTextPassword.getText().toString().trim();
+            final String email = editTextEmail.getText().toString().trim();
+            final String password = editTextPassword.getText().toString().trim();
+            final String name = editTextName.getText().toString().trim();
+            final String dob = txtdate.getText().toString().trim();
 
-            //checking if email and passwords are empty
+
+            //checking if fields are empty
             if (TextUtils.isEmpty(email)) {
                 Toast.makeText(this, "Please enter email", Toast.LENGTH_LONG).show();
                 return;
@@ -106,6 +116,15 @@
 
             if (TextUtils.isEmpty(password)) {
                 Toast.makeText(this, "Please enter password", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            if (TextUtils.isEmpty(name)) {
+                Toast.makeText(this, "Please enter name", Toast.LENGTH_LONG).show();
+                return;
+            }
+            if (TextUtils.isEmpty(dob)) {
+                Toast.makeText(this, "Please enter Date of Birth", Toast.LENGTH_LONG).show();
                 return;
             }
 
@@ -122,6 +141,31 @@
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             //checking if success
                             if (task.isSuccessful()) {
+                                final FirebaseUser user = task.getResult().getUser();
+                                if(user!=null){
+                                    firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                            if (task.isSuccessful()) {
+                                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+                                                databaseReference = databaseReference.child(user.getUid());
+
+                                                UserModel userModel = new UserModel();
+                                                userModel.setName(name);
+                                                userModel.setEmail(email);
+                                                userModel.setDob(dob);
+                                                userModel.setPassword(password);
+
+                                                databaseReference.setValue(userModel);
+                                            }
+
+                                        }
+                                    });
+
+
+                                }
+
                                 finish();
                                 startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                             } else {
@@ -131,6 +175,8 @@
                             progressDialog.dismiss();
                         }
                     });
+
+
 
         }
 

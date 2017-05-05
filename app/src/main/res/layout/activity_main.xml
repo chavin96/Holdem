@@ -22,13 +22,6 @@
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="24sp" />
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:background="?attr/colorPrimary"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     <TextView
         android:id="@+id/Sign_up_heading"
         android:layout_width="wrap_content"
