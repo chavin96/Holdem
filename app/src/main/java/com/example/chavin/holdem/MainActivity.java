@@ -14,6 +14,7 @@
     import android.widget.Button;
     import android.widget.DatePicker;
     import android.widget.EditText;
+    import android.widget.RadioButton;
     import android.widget.RadioGroup;
     import android.widget.TextView;
     import android.widget.Toast;
@@ -37,6 +38,9 @@
         private EditText txtdate;
 
         private TextView textViewSignin;
+
+        private RadioGroup rg;
+        private RadioButton rb;
 
 
         private ProgressDialog progressDialog;
@@ -69,6 +73,8 @@
             editTextName = (EditText) findViewById(R.id.editTextName);
             txtdate = (EditText) findViewById(R.id.txtdate);
             textViewSignin = (TextView) findViewById(R.id.textViewSignin);
+
+            rg=(RadioGroup) findViewById(R.id.radioGroup);
 
             buttonSignup = (Button) findViewById(R.id.buttonSignup);
 
@@ -106,6 +112,9 @@
             final String password = editTextPassword.getText().toString().trim();
             final String name = editTextName.getText().toString().trim();
             final String dob = txtdate.getText().toString().trim();
+            final int radiobuttonid= rg.getCheckedRadioButtonId();
+            rb=(RadioButton) findViewById(radiobuttonid);
+            final String radiobuttonvalue = rb.getText().toString().trim();
 
 
             //checking if fields are empty
@@ -125,6 +134,10 @@
             }
             if (TextUtils.isEmpty(dob)) {
                 Toast.makeText(this, "Please enter Date of Birth", Toast.LENGTH_LONG).show();
+                return;
+            }
+            if (TextUtils.isEmpty(radiobuttonvalue)) {
+                Toast.makeText(this, "Please select gender", Toast.LENGTH_LONG).show();
                 return;
             }
 
@@ -156,6 +169,7 @@
                                                 userModel.setEmail(email);
                                                 userModel.setDob(dob);
                                                 userModel.setPassword(password);
+                                                userModel.setGender(radiobuttonvalue);
 
                                                 databaseReference.setValue(userModel);
                                             }

@@ -104,6 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:id="@+id/radioGroup"
             android:layout_marginTop="280dp"
             android:layout_marginLeft="18dp">
 
@@ -115,6 +116,7 @@
                 android:layout_above="@+id/txtdate"
                 android:layout_alignStart="@+id/txtdate"
                 android:layout_marginBottom="13dp"
+                android:checked="false"
                 android:text="Male"
                 android:textSize="18sp" />
 
