@@ -1,33 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="com.example.chavin.holdem.ProfileActivity">
 
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
+    <TextView
+        android:id="@+id/textViewUserEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="230dp">
+        android:layout_gravity="center_horizontal"
+        android:text="Welcome"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="36sp" />
 
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="121dp"
+        android:layout_height="59dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Logout"
+        android:textSize="24sp"
+        android:layout_marginBottom="24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/buttonAlarm" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textViewUserEmail"
-            android:layout_gravity="center_horizontal" />
+    <Button
+        android:id="@+id/buttonAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Set Alarm"
+        android:textSize="24sp"
+        android:layout_below="@+id/textViewUserEmail"
+        android:layout_centerHorizontal="true" />
 
-        <Button
-            android:id="@+id/buttonLogout"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Logout" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/buttonDashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="Sneak"
+        android:textSize="24sp"
+        android:layout_below="@+id/buttonAlarm"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/buttonNewBrsuh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="78dp"
+        android:text=" New Brush"
+        android:textSize="24sp"
+        android:layout_below="@+id/buttonDashboard"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
