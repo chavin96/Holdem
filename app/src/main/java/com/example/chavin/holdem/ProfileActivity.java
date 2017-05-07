@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Calendar;
+
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
@@ -22,6 +24,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     //view objects
     private TextView textViewUserEmail;
     private Button buttonLogout;
+    private Button buttonAlarm;
 
 
     @Override
@@ -47,13 +50,23 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         //initializing views
         textViewUserEmail = (TextView) findViewById(R.id.textViewUserEmail);
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
+        buttonAlarm = (Button) findViewById(R.id.buttonAlarm);
 
         //displaying logged in user name
         textViewUserEmail.setText("Welcome "+user.getEmail());
 
         //adding listener to button
         buttonLogout.setOnClickListener(this);
+
+
+        buttonAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.alarm);
+            }
+        });
     }
+
 
     @Override
     public void onClick(View view) {

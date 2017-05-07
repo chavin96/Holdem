@@ -17,12 +17,12 @@
         android:layout_gravity="center_horizontal"
         android:text="Welcome"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="36sp" />
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/buttonLogout"
         android:layout_width="121dp"
-        android:layout_height="59dp"
+        android:layout_height="49dp"
         android:layout_gravity="center_horizontal"
         android:text="Logout"
         android:textSize="24sp"
