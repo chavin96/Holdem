@@ -70,7 +70,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        //if logout is pressed
+        //if logout is pressedd
         if(view == buttonLogout){
             //logging out the user
             firebaseAuth.signOut();
