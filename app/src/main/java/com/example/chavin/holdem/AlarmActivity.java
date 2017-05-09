@@ -29,8 +29,8 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.alarm);
-        this.context = this;
+       setContentView(R.layout.alarm);
+      //  this.context = this;
 
         //initializing the alarm manager
         alarm_manager = (AlarmManager) getSystemService(ALARM_SERVICE);
