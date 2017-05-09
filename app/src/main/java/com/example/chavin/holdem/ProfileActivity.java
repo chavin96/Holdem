@@ -62,7 +62,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         buttonAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             //   setContentView(R.layout.alarm);
+                setContentView(R.layout.alarm);
             }
         });
     }
