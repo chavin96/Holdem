@@ -88,6 +88,20 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
 
         //initialize end button
         Button alarm_off = (Button)findViewById(R.id.buttonStopAlarm);
+        //create an onclick listner
+        alarm_off.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                //method that changes the status textbox
+                set_alarm_text("Alarm off");
+
+                //cancel the alarm
+                alarm_manager.cancel(pending_intent);
+            }
+        });
 
     }
 

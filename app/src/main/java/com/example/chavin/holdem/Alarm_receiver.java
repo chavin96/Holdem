@@ -15,10 +15,10 @@ public class Alarm_receiver extends BroadcastReceiver {
         Log.e("we are in the receiver","yay");
 
         //create an intent to the ringtone service
-        //Intent service_intent = new Intent(context, RingtoneplayingService.class);
+        Intent service_intent = new Intent(context, RingtoneplayingService.class);
 
         //start the ringtone service
-        //context.startService(service_intent);
+        context.startService(service_intent);
     }
 
 
