@@ -26,9 +26,9 @@
         android:layout_gravity="center_horizontal"
         android:text="Logout"
         android:textSize="24sp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="22dp"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/buttonAlarm" />
+        android:layout_toEndOf="@+id/buttonDashboard" />
 
     <Button
         android:id="@+id/buttonAlarm"

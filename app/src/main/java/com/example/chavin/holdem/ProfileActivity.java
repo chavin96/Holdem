@@ -57,19 +57,25 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         //adding listener to button
         buttonLogout.setOnClickListener(this);
+        buttonAlarm.setOnClickListener(this);
 
 
-        buttonAlarm.setOnClickListener(new View.OnClickListener() {
+      /*  buttonAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setContentView(R.layout.alarm);
             }
-        });
+        });*/
     }
 
 
     @Override
     public void onClick(View view) {
+
+        if(view==buttonAlarm){
+            //starting alarm
+            startActivity(new Intent(this, AlarmActivity.class));
+        }
         //if logout is pressedd
         if(view == buttonLogout){
             //logging out the user
@@ -79,5 +85,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             //starting login activity
             startActivity(new Intent(this, LoginActivity.class));
         }
+
     }
 }
