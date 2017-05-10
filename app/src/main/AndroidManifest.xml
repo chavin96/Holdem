@@ -39,6 +39,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <receiver android:name=".Alarm_receiver"/>
+        <service android:name=".RingtoneplayingService" android:enabled="true"></service>
 
     </application>
 
