@@ -25,6 +25,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView textViewUserEmail;
     private Button buttonLogout;
     private Button buttonAlarm;
+    private Button buttonDashboard;
+    private Button buttonNewToothbrush;
 
 
     @Override
@@ -51,6 +53,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         textViewUserEmail = (TextView) findViewById(R.id.textViewUserEmail);
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
         buttonAlarm = (Button) findViewById(R.id.buttonAlarm);
+        buttonDashboard = (Button) findViewById(R.id.buttonDashboard);
+        buttonNewToothbrush = (Button) findViewById(R.id.buttonNewBrush);
 
         //displaying logged in user name
         textViewUserEmail.setText("Welcome "+user.getEmail());
@@ -58,6 +62,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         //adding listener to button
         buttonLogout.setOnClickListener(this);
         buttonAlarm.setOnClickListener(this);
+        buttonDashboard.setOnClickListener(this);
 
 
       /*  buttonAlarm.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +81,17 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             //starting alarm
             startActivity(new Intent(this, AlarmActivity.class));
         }
+
+        if(view==buttonDashboard){
+            //starting dashboard
+            startActivity(new Intent(this, CheckHistory.class));
+        }
+
+        if(view==buttonNewToothbrush){
+            //starting dashboard
+            startActivity(new Intent(this, NewBrush.class));
+        }
+
         //if logout is pressedd
         if(view == buttonLogout){
             //logging out the user

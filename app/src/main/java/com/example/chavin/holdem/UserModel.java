@@ -5,11 +5,14 @@ package com.example.chavin.holdem;
  */
 
 public class UserModel {
-        String name;
-        String email;
-        String password;
-        String dob;
-        String gender;
+    String name;
+    String email;
+    String password;
+    String dob;
+    String gender;
+    String alarm;
+    String date;
+
 
     public String getGender() {
         return gender;
@@ -53,6 +56,15 @@ public class UserModel {
         this.dob = dob;
     }
 
+    public void setAlarm(String alarm){
+        this.alarm = alarm;
+    }
+    public String getAlarm(){
+        return alarm;
+    }
+
+    public void setDate(String date){ this.date = date;}
+    public String getDate(){ return date;}
     public UserModel(){
 
     }
