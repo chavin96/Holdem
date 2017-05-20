@@ -12,7 +12,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class CheckHistory extends AppCompatActivity {
 
-    private DatabaseReference mDatabase;
     private TextView mAlarmView;
 
     @Override
@@ -20,10 +19,10 @@ public class CheckHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_history);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("time");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child("Potato");
         mAlarmView = (TextView) findViewById(R.id.alarm_view);
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String alarm = dataSnapshot.getValue().toString();
