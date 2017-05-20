@@ -20,6 +20,7 @@ public class CheckHistory extends AppCompatActivity {
         setContentView(R.layout.activity_check_history);
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child("Potato");
+        //hello merge
         mAlarmView = (TextView) findViewById(R.id.alarm_view);
 
         ref.addValueEventListener(new ValueEventListener() {
