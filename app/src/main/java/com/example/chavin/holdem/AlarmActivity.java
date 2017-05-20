@@ -69,7 +69,7 @@ public class AlarmActivity extends AppCompatActivity  {
                 calendar.set(Calendar.MINUTE, alarm_timepicker.getCurrentMinute());
 
                 UserModel um = new UserModel();
-                //get the int values of hour and minute
+                //get the int values of hour and minutes
                 hour = (alarm_timepicker.getCurrentHour());
                 minute = (alarm_timepicker.getCurrentMinute());
                 String hour_string = "hh";
