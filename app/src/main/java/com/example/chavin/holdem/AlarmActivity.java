@@ -64,12 +64,12 @@ public class AlarmActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
 
-                //setting hours and minutes using old method
+                //setting hours and minutes using old methods
                 calendar.set(Calendar.HOUR_OF_DAY, alarm_timepicker.getCurrentHour());
                 calendar.set(Calendar.MINUTE, alarm_timepicker.getCurrentMinute());
 
                 UserModel um = new UserModel();
-                //get the int values of hour and minute
+                //get the int values of hour and minutes
                 hour = (alarm_timepicker.getCurrentHour());
                 minute = (alarm_timepicker.getCurrentMinute());
                 String hour_string = "hh";
