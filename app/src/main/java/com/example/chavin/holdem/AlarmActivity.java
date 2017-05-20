@@ -32,7 +32,7 @@ public class AlarmActivity extends AppCompatActivity  {
     TextView status;
     protected int hour;
     protected int minute;
-    //defining firebase auth object
+    //defining firebase auth objectss
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -64,7 +64,11 @@ public class AlarmActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
 
-                //setting hours and minutes using old method
+<<<<<<<<< Temporary merge branch 1
+                //setting hours and minutes using old methods
+=========
+                //setting hours and minutes
+>>>>>>>>> Temporary merge branch 2
                 calendar.set(Calendar.HOUR_OF_DAY, alarm_timepicker.getCurrentHour());
                 calendar.set(Calendar.MINUTE, alarm_timepicker.getCurrentMinute());
 
