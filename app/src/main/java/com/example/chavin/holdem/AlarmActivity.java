@@ -59,7 +59,7 @@ public class AlarmActivity extends AppCompatActivity  {
         final Intent my_intent = new Intent(this.context, Alarm_receiver.class);
 
 
-        //create an onclick listner
+        //create an onclick listener
         alarm_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
