@@ -32,7 +32,7 @@ public class AlarmActivity extends AppCompatActivity  {
     TextView status;
     protected int hour;
     protected int minute;
-    //defining firebase auth objects
+    //defining firebase auth objectss
     private FirebaseAuth firebaseAuth;
 
     @Override
