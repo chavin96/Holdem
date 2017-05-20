@@ -29,6 +29,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private Button buttonDashboard;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +84,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         if(view==buttonNewBrush){
-            //starting alarm
+            //starting new brush
             startActivity(new Intent(this, NewBrush.class));
         }
 
