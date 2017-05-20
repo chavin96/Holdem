@@ -43,7 +43,7 @@ public class NewBrush extends AppCompatActivity {
                 databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
                 databaseReference.child(user.getUid()).push().setValue(date);
                 um.setDate(date);
-              
+
             }
         });
 

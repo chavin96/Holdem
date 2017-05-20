@@ -6,14 +6,23 @@ import android.content.Context;
 import android.content.Intent;
 import java.util.Calendar;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class AlarmActivity extends AppCompatActivity implements View.OnClickListener {
+public class AlarmActivity extends AppCompatActivity  {
 
     //to make the alarm manager
     AlarmManager alarm_manager;
@@ -21,6 +30,10 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
     Context context;
     PendingIntent pending_intent;
     TextView status;
+    protected int hour;
+    protected int minute;
+    //defining firebase auth object
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,31 +68,30 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
                 calendar.set(Calendar.HOUR_OF_DAY, alarm_timepicker.getCurrentHour());
                 calendar.set(Calendar.MINUTE, alarm_timepicker.getCurrentMinute());
 
+                UserModel um = new UserModel();
                 //get the int values of hour and minute
-                int hour = alarm_timepicker.getCurrentHour();
-                int minute= alarm_timepicker.getCurrentMinute();
-
+                hour = (alarm_timepicker.getCurrentHour());
+                minute = (alarm_timepicker.getCurrentMinute());
+                String hour_string = "hh";
+                String minute_string = "mm";
                 //convert the int values to string
-                String hour_string = String.valueOf(hour);
-                String minute_string = String.valueOf(minute);
-
-                //convert 24 hours to 12 hours
-                if (hour>12){
-                    hour_string= String.valueOf(hour - 12);
+                if (hour < 10 && hour >= 0) {
+                    hour_string = "0" + String.valueOf(hour);
                 }
-
-                if (minute <10){
-                    //12:3 --> 12:03
+                else {
+                    hour_string = String.valueOf(hour);
+                }
+                if(minute<10 && minute >= 0){
                     minute_string = "0" + String.valueOf(minute);
                 }
+                else {
+                    minute_string = String.valueOf(minute);
+                }
+
 
 
                 //method that changes the status Textbox
                 set_alarm_text("Alarm set to:" + hour_string + ":" + minute_string);
-
-                //put in extra string into my intent
-                //tells the clock that you pressed the "alarm on" button
-                my_intent.putExtra("extra", "alarm on");
 
                 //create a pending intent to delay the intent until the specified calender time
                 pending_intent = PendingIntent.getBroadcast(AlarmActivity.this, 0, my_intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -87,6 +99,13 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
 
                 //set the alarm manager
                 alarm_manager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pending_intent);
+
+                //set alarm variable
+                um.setAlarm(hour_string + ":" + minute_string);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+                databaseReference.child(user.getUid()).push().setValue(um);
+
             }
         });
 
@@ -121,9 +140,5 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
-
-    @Override
-    public void onClick(View view) {
-    }
 
 }
