@@ -64,11 +64,6 @@ public class AlarmActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
 
-<<<<<<<<< Temporary merge branch 1
-                //setting hours and minutes using old methods
-=========
-                //setting hours and minutes
->>>>>>>>> Temporary merge branch 2
                 calendar.set(Calendar.HOUR_OF_DAY, alarm_timepicker.getCurrentHour());
                 calendar.set(Calendar.MINUTE, alarm_timepicker.getCurrentMinute());
 
